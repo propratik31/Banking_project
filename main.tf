@@ -1,4 +1,16 @@
-resource "instance" "server" {
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1" 
+}
+
+resource "aws_instance" "test-server" {
   ami               = "ami-0866a3c8686eaeeba"
   instance_type     = "t2.micro"
   key_name          = "myjenkins"
@@ -6,7 +18,7 @@ resource "instance" "server" {
 
   connection {
     type        = "ssh"
-    user        = "ubuntu"     
+    user        = "ubuntu"
     private_key = file("./myjenkins.pem")
     host        = self.public_ip
   }
@@ -16,7 +28,7 @@ resource "instance" "server" {
   }
 
   tags = {
-    Name = "server"
+    Name = "test-server"
   }
 
   provisioner "local-exec" {
