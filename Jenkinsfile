@@ -40,7 +40,7 @@ pipeline{
         }
          stage('Config & Deployment') {
             steps {
-                    sh 'sudo chmod 600 mykey.pem'
+                    sh 'sudo chmod 600 myjenkins.pem'
                     sh 'terraform init'
                     sh 'terraform validate'
                     sh 'terraform apply --auto-approve'
