@@ -43,7 +43,7 @@ pipeline {
                 sh 'sudo chmod 600 myjenkins.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
-                sh 'terraform plam'
+                sh 'terraform plan'
                 sh 'terraform apply'
             }
         }
