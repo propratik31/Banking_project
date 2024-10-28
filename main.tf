@@ -16,7 +16,7 @@ resource "instance" "server" {
   }
 
   tags = {
-    Name = "test-server"
+    Name = "server"
   }
 
   provisioner "local-exec" {
