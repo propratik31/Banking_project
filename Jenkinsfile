@@ -35,7 +35,7 @@ pipeline {
         }
         stage('port expose') {
             steps {
-                sh 'docker run -dt -p 8095:8095 --name c131 myimg'
+                sh 'docker run -dt -p 8096:8096 --name c231 myimg'
             }
         }
         stage('Config & Deployment') {
@@ -43,7 +43,8 @@ pipeline {
                 sh 'sudo chmod 600 myjenkins.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
-                sh 'terraform apply --auto-approve'
+                sh 'terraform plam'
+                sh 'terraform apply'
             }
         }
     }
