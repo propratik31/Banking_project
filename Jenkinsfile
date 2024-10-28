@@ -37,6 +37,16 @@ pipeline{
             steps{
                 sh 'docker run -dt -p 8091:8091 --name c000 myimg'
             }
-        }   
+        }
+         stage('Config & Deployment') {
+            steps {
+                    sh 'sudo chmod 600 mykey.pem'
+                    sh 'terraform init'
+                    sh 'terraform validate'
+                    sh 'terraform apply --auto-approve'
+}
+    }
+}
+}
     }
 }
