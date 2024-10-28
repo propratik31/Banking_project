@@ -35,7 +35,7 @@ pipeline {
         }
         stage('port expose') {
             steps {
-                sh 'docker run -dt -p 8198:8198 --name c631 myimg'
+                sh 'docker run -dt -p 8298:8298 --name c731 myimg'
             }
         }
         stage('Config & Deployment') {
